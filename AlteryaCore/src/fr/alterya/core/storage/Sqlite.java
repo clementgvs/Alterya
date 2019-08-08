@@ -1,4 +1,4 @@
-package fr.alterya.money.storage;
+package fr.alterya.core.storage;
 
 import java.io.File;
 import java.sql.Connection;

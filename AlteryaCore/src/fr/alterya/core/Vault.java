@@ -1,11 +1,10 @@
-package fr.alterya.money;
+package fr.alterya.core;
 
 import java.util.List;
 
 import org.bukkit.OfflinePlayer;
 
-import fr.alterya.money.Settings.Nodes;
-
+import fr.alterya.core.Settings.Nodes;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
 

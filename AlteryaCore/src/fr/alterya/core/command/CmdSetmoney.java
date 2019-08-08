@@ -1,4 +1,4 @@
-package fr.alterya.money.command;
+package fr.alterya.core.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -7,7 +7,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import fr.alterya.money.Main;
-import fr.alterya.money.Messages;
 import fr.alterya.money.manager.AccountManager;
 import fr.alterya.money.manager.account.AccountException;
 import fr.alterya.money.manager.account.Holdings;
@@ -16,12 +15,6 @@ public class CmdSetmoney implements CommandExecutor {
 
 	@SuppressWarnings("unused")
 	private Main plugin;
-	
-	public CmdSetmoney(Main plugin) {
-		
-		this.plugin = plugin;
-		
-	}
 	
 	@SuppressWarnings("deprecation")
 	@Override
@@ -47,7 +40,7 @@ public class CmdSetmoney implements CommandExecutor {
 			
 			AccountManager.getAccount(reciever.getUniqueId().toString(), "default").getHoldings().setBalance(amount);
 			
-			sender.sendMessage(Messages.format("&aYou have set " + reciever.getName() + "(s) to &e" + Holdings.format(amount)));
+			sender.sendMessage("&aYou have set " + reciever.getName() + "(s) to &e" + Holdings.format(amount));
 			
 		} catch (AccountException e) {
 			

@@ -1,8 +1,10 @@
-package fr.alterya.money;
+package fr.alterya.core;
 
 import java.util.List;
 
 import org.bukkit.configuration.file.FileConfiguration;
+
+import fr.alterya.money.Main;
 
 public class Settings {
 

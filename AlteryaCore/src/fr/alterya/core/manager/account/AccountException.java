@@ -1,4 +1,4 @@
-package fr.alterya.money.manager.account;
+package fr.alterya.core.manager.account;
 
 public class AccountException extends Exception {
 

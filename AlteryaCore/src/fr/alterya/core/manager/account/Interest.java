@@ -1,19 +1,17 @@
-package fr.alterya.money.manager.account;
+package fr.alterya.core.manager.account;
 
 import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import fr.alterya.core.Settings.Nodes;
 import fr.alterya.money.Main;
-import fr.alterya.money.Messages;
-import fr.alterya.money.Settings.Nodes;
 import fr.alterya.money.storage.Flatfile;
 import fr.alterya.money.utils.TimeUtil;
 
 public class Interest extends BukkitRunnable {
 
-	@SuppressWarnings("unused")
 	private Main plugin;
 	
 	private Random rand;
@@ -22,9 +20,7 @@ public class Interest extends BukkitRunnable {
 	
 	private Flatfile interestFile;
 	
-	public Interest(Main plugin) {
-		
-		this.plugin = plugin;
+	public Interest() {
 		
 		interestFile = new Flatfile(plugin, "interest.yml", plugin.getDataFolder(), "interest.yml");
 		
@@ -47,7 +43,7 @@ public class Interest extends BukkitRunnable {
 		
 		int amount = rand.nextInt(Nodes.INTERESTMAX.getInt()) + Nodes.INTERESTMIN.getInt();
 		
-		if(Nodes.INTERESTANNOUNCE.getBoolean()) Bukkit.broadcastMessage(Messages.format("&2Its interest day! &a" + Holdings.format(amount) + " &2has been paid to your account."));
+		if(Nodes.INTERESTANNOUNCE.getBoolean()) Bukkit.broadcastMessage("&2Its interest day! &a" + Holdings.format(amount) + " &2has been paid to your account.");
 			
 		AccountData.updateAllBalances(Nodes.INTERESTONLINE.getBoolean(), amount);
 		

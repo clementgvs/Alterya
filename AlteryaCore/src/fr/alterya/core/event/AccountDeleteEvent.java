@@ -1,27 +1,23 @@
-package fr.alterya.money.event;
+package fr.alterya.core.event;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class AccountCreateEvent extends Event {
+public class AccountDeleteEvent extends Event {
 
 	private static final HandlerList handlers = new HandlerList();
 	
 	private String accountName;
-
-	private String userId;
 	
-	private int balance;
+	private String userId;
 	
 	private boolean cancel;
 	
-	public AccountCreateEvent(String userId, String accountName, int balance) {
-		
-		this.userId = userId;
+	public AccountDeleteEvent(String userId, String accountName) {
 		
 		this.accountName = accountName;
 		
-		this.setBalance(balance);
+		this.userId = userId;
 		
 	}
 	
@@ -49,28 +45,16 @@ public class AccountCreateEvent extends Event {
 		
 	}
 
-	public String getAccountName() {
-		
-		return accountName;
-		
-	}
-	
 	public String getUserId() {
 		
 		return userId;
 		
 	}
 
-	public int getBalance() {
+	public String getAccountName() {
 		
-		return balance;
-		
-	}
-
-	public void setBalance(int balance) {
-		
-		this.balance = balance;
+		return accountName;
 		
 	}
-
+	
 }

@@ -1,4 +1,4 @@
-package fr.alterya.money.listeners;
+package fr.alterya.core;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

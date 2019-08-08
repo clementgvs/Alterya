@@ -1,6 +1,4 @@
-package fr.alterya.money.command;
-
-import static fr.alterya.money.Messages.tl;
+package fr.alterya.core.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -10,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.alterya.money.Main;
-import fr.alterya.money.Messages;
 import fr.alterya.money.manager.AccountManager;
 import fr.alterya.money.manager.account.Account;
 import fr.alterya.money.manager.account.AccountException;
@@ -20,25 +17,15 @@ public class CmdSendmoney implements CommandExecutor {
 
 	private Main plugin;
 	
-	public CmdSendmoney(Main plugin) {
-		
-		this.plugin = plugin;
-		
-	}
-	
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		if(!(sender instanceof Player)) {
-			
-			sender.sendMessage(tl("playerOnly"));
-			
+			sender.sendMessage("§cThis command can only be run by players");
 			return true;
-			
 		}
-		
-		// Check if the second argument is a number
+
 		if(args.length < 2) return false;
 		
 		int amount = 0;
@@ -56,7 +43,6 @@ public class CmdSendmoney implements CommandExecutor {
 
 		Player payer = (Player)sender;
 
-		//Pay the reciever(s) some money!
 		Holdings payerHoldings = new Account(payer.getUniqueId().toString(), "default", plugin).getHoldings();
 		
 		if(args[0].equalsIgnoreCase("all")) amount = (Bukkit.getOnlinePlayers().length -1) * amount;
@@ -79,7 +65,7 @@ public class CmdSendmoney implements CommandExecutor {
 		
 		if(!reciever.hasPlayedBefore() || !AccountManager.hasAccount(reciever.getUniqueId().toString(), "default")) {
 			
-			sender.sendMessage(tl("accountNotExists"));
+			sender.sendMessage("§cThis account already exists!");
 			
 			return true;
 			
@@ -87,17 +73,13 @@ public class CmdSendmoney implements CommandExecutor {
 	
 		new Account(reciever.getUniqueId().toString(), "default", plugin).getHoldings().add(amount);
 		
-		payer.sendMessage(Messages.format("&aYou have sent &e" + formattedBal + " &ato " + reciever.getName()));
+		payer.sendMessage("aYou have sent §e" + formattedBal + " §ato " + reciever.getName());
 		
 		if(reciever.isOnline()) {
 			
-			reciever.getPlayer().sendMessage(Messages.format("&aYou have recieved &e" + formattedBal + " &afrom " + payer.getDisplayName()));
+			reciever.getPlayer().sendMessage("§aYou have recieved §e" + formattedBal + " §afrom " + payer.getDisplayName());
 	
 		}
-		//
-		
 		return true;
-		
 	}
-
 }

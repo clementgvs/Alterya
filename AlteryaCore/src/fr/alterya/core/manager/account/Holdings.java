@@ -1,12 +1,10 @@
-package fr.alterya.money.manager.account;
-
-import static fr.alterya.money.Messages.tl;
+package fr.alterya.core.manager.account;
 
 import org.bukkit.Bukkit;
 
+import fr.alterya.core.Settings.Nodes;
+import fr.alterya.core.event.HoldingsChangeEvent;
 import fr.alterya.money.Main;
-import fr.alterya.money.Settings.Nodes;
-import fr.alterya.money.event.HoldingsChangeEvent;
 
 public class Holdings {
 
@@ -65,7 +63,7 @@ public class Holdings {
 		double balance = getBalance();
 		
 		if((balance - amount) < Nodes.BALANCEMIN.getInt()) 
-			throw new AccountException(tl("notEnoughMoney"));
+			throw new AccountException("&cYou need more money to do this!");
 		
 		setBalance(getBalance() - amount);
 		

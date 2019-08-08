@@ -1,4 +1,4 @@
-package fr.alterya.money.utils;
+package fr.alterya.core.utils;
 
 import java.util.concurrent.TimeUnit;
 

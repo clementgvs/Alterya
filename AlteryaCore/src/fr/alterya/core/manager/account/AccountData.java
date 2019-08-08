@@ -1,4 +1,4 @@
-package fr.alterya.money.manager.account;
+package fr.alterya.core.manager.account;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,8 +8,8 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import fr.alterya.core.Settings.Nodes;
 import fr.alterya.money.Main;
-import fr.alterya.money.Settings.Nodes;
 import fr.alterya.money.storage.Database;
 import fr.alterya.money.storage.Sqlite;
 
@@ -19,9 +19,7 @@ public class AccountData {
 
 	private static Database db;
 
-	public AccountData(Main plugin) {
-		
-		AccountData.plugin = plugin;
+	public AccountData() {
 		
 		if(Nodes.DATABASEMYSQL.getBoolean()) {
 			

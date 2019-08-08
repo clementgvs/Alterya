@@ -1,10 +1,12 @@
-package fr.alterya.money;
+package fr.alterya.core;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import fr.alterya.money.Main;
 
 public class Data {
 

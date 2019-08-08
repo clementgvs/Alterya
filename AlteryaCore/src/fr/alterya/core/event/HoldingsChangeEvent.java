@@ -1,4 +1,4 @@
-package fr.alterya.money.event;
+package fr.alterya.core.event;
 
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

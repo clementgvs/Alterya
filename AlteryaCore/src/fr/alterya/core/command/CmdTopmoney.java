@@ -1,4 +1,4 @@
-package fr.alterya.money.command;
+package fr.alterya.core.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -7,12 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.alterya.money.Main;
-import fr.alterya.money.Messages;
 import fr.alterya.money.manager.AccountManager;
 import fr.alterya.money.manager.account.Account;
 import fr.alterya.money.manager.account.Holdings;
-
-import static fr.alterya.money.Messages.tl;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,12 +18,6 @@ public class CmdTopmoney implements CommandExecutor {
 
 	@SuppressWarnings("unused")
 	private Main plugin;
-	
-	public CmdTopmoney(Main plugin) {
-		
-		this.plugin = plugin;
-		
-	}
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -37,7 +28,7 @@ public class CmdTopmoney implements CommandExecutor {
 		
 		if(accounts.isEmpty()) {
 			
-			player.sendMessage(tl("noBalances"));
+			player.sendMessage("Une erreur est survenue, veuillez contacter un Administrateur, Responsable, ou un Développeur.");
 		
 			return true;
 			
@@ -51,7 +42,7 @@ public class CmdTopmoney implements CommandExecutor {
 			
 		}
 		
-		player.sendMessage(Messages.format(message));
+		player.sendMessage(message);
 		
 		return true;
 		

@@ -1,4 +1,4 @@
-package fr.alterya.money.storage;
+package fr.alterya.core.storage;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
