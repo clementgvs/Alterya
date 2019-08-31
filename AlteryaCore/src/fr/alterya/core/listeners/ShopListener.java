@@ -16,7 +16,7 @@ import fr.alterya.core.shop.PrisesList;
 import fr.alterya.core.shop.Shop;
 import fr.alterya.core.util.ItemBuilder;
 
-public class ShopInterractEvent implements Listener 
+public class ShopListener implements Listener 
 {	
 	PrisesList prisesList;
 	Shop shop;
